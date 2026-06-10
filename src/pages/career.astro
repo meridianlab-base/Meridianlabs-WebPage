@@ -1,0 +1,25 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CareerHero from "@/components/career/CareerHero.astro";
+import Values from "@/components/career/Values.astro";
+import Internship from "@/components/career/Internship.astro";
+import ApplyForm from "@/components/career/ApplyForm.tsx";
+---
+
+<BaseLayout title="Careers & Internships | Meridian Labs" active="career">
+  <main class="overflow-hidden">
+    <CareerHero />
+    <Values />
+    <Internship />
+
+    <!-- Application Form -->
+    <section id="apply" class="py-section-padding-v px-gutter max-w-container-max mx-auto border-t border-outline-variant">
+      <div class="max-w-4xl">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-12">
+          Tell Us About Yourself.
+        </h2>
+        <ApplyForm client:load />
+      </div>
+    </section>
+  </main>
+</BaseLayout>
