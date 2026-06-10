@@ -7,8 +7,8 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #0d0d0d;
-    color: #e4e4d0;
+    background-color: #0A2647;
+    color: #E2EEF9;
     -webkit-font-smoothing: antialiased;
     position: relative;
   }
@@ -28,16 +28,16 @@
     background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
   }
 
-  /* Electric lime glow on accent elements */
+  /* Ice-blue glow on accent elements */
   .accent-glow {
-    box-shadow: 0 0 15px rgba(216, 239, 39, 0.3);
+    box-shadow: 0 0 15px rgba(44, 116, 179, 0.3);
   }
 
   /* Architectural underline-only inputs */
   .architectural-input {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid #1d3d63;
     border-radius: 0;
     padding-left: 0;
     padding-right: 0;
@@ -46,7 +46,7 @@
   .architectural-input:focus {
     outline: none;
     box-shadow: none;
-    border-color: #d8ef27;
+    border-color: #2C74B3;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -110,8 +110,8 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d0d0d;
+  background: #0A2647;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #205295;
 }
