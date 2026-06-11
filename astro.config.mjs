@@ -4,8 +4,8 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build
 export default defineConfig({
-  site: "https://ragul-kumar.github.io",
-  base: "/Meridianlabs_Base",
+  site: "https://meridianlab-base.github.io",
+  base: "/Meridianlabs-WebPage",
   integrations: [
     react(),
     tailwind({ applyBaseStyles: false }),
