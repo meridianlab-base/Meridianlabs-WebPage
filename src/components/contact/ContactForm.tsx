@@ -3,16 +3,30 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { submitToSheet } from "@/lib/forms";
 
 const selectCls =
   "w-full appearance-none rounded-none border-0 border-b border-outline-variant bg-transparent px-0 py-2 pr-8 font-body-md text-body-md text-primary focus:outline-none focus:border-primary-fixed cursor-pointer";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = React.useState(false);
+  const [sending, setSending] = React.useState(false);
+  const [error, setError] = React.useState(false);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setError(false);
+    setSending(true);
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form)) as Record<string, string>;
+    try {
+      await submitToSheet({ formType: "contact", ...data });
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   if (submitted) {
@@ -71,11 +85,16 @@ export default function ContactForm() {
           required
         />
       </div>
-      <div className="sm:col-span-2 pt-2">
-        <Button type="submit" size="xl">
-          Send Message
+      <div className="sm:col-span-2 pt-2 flex flex-col gap-3">
+        <Button type="submit" size="xl" disabled={sending}>
+          {sending ? "Sending…" : "Send Message"}
           <span className="material-symbols-outlined">arrow_forward</span>
         </Button>
+        {error && (
+          <p className="font-body-md text-body-md text-error">
+            Something went wrong. Please try again or email hello@meridianlabs.com.
+          </p>
+        )}
       </div>
     </form>
   );
