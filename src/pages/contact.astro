@@ -22,7 +22,7 @@ const steps = [
       <span class="font-label-mono text-label-mono text-primary-fixed uppercase tracking-[0.2em] mb-4">
         Contact
       </span>
-      <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary max-w-4xl mb-stack-md">
+      <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary max-w-4xl mb-stack-md text-balance break-words">
         Let's Build Something That Lasts.
       </h1>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
@@ -41,17 +41,17 @@ const steps = [
             {
               details.map((d) => (
                 <div class="flex gap-4 items-start">
-                  <span class="material-symbols-outlined text-primary-fixed text-3xl">{d.icon}</span>
-                  <div class="flex flex-col gap-1">
+                  <span class="material-symbols-outlined text-primary-fixed text-3xl shrink-0">{d.icon}</span>
+                  <div class="flex flex-col gap-1 min-w-0">
                     <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-widest">
                       {d.label}
                     </span>
                     {d.href ? (
-                      <a href={d.href} class="font-headline-sm text-headline-sm text-primary hover:text-primary-fixed transition-colors">
+                      <a href={d.href} class="font-headline-sm text-headline-sm text-primary hover:text-primary-fixed transition-colors break-words">
                         {d.value}
                       </a>
                     ) : (
-                      <span class="font-headline-sm text-headline-sm text-primary">{d.value}</span>
+                      <span class="font-headline-sm text-headline-sm text-primary break-words">{d.value}</span>
                     )}
                   </div>
                 </div>
