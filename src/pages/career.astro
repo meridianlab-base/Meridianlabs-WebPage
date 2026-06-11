@@ -3,7 +3,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import CareerHero from "@/components/career/CareerHero.astro";
 import Values from "@/components/career/Values.astro";
 import Internship from "@/components/career/Internship.astro";
-import ApplyForm from "@/components/career/ApplyForm.tsx";
 ---
 
 <BaseLayout title="Careers & Internships | Meridian Labs" active="career">
@@ -18,7 +17,19 @@ import ApplyForm from "@/components/career/ApplyForm.tsx";
         <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-12">
           Tell Us About Yourself.
         </h2>
-        <ApplyForm client:load />
+        <iframe
+          data-tally-src="https://tally.so/embed/EkadLL?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          loading="lazy"
+          width="100%"
+          height="284"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Apply for Internship"
+        ></iframe>
+        <script>
+          var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+        </script>
       </div>
     </section>
   </main>
