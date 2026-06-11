@@ -7,8 +7,8 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: #2D2A3D;
-    color: #C9BBB0;
+    background-color: #F5F7FF;
+    color: #1F2937;
     -webkit-font-smoothing: antialiased;
     position: relative;
   }
@@ -30,14 +30,14 @@
 
   /* Ice-blue glow on accent elements */
   .accent-glow {
-    box-shadow: 0 0 15px rgba(232, 213, 200, 0.25);
+    box-shadow: 0 0 15px rgba(37, 99, 235, 0.25);
   }
 
   /* Architectural underline-only inputs */
   .architectural-input {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #3A3748;
+    border-bottom: 1px solid #C7D0E4;
     border-radius: 0;
     padding-left: 0;
     padding-right: 0;
@@ -46,7 +46,7 @@
   .architectural-input:focus {
     outline: none;
     box-shadow: none;
-    border-color: #E8D5C8;
+    border-color: #2563EB;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -110,8 +110,8 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #2D2A3D;
+  background: #F5F7FF;
 }
 ::-webkit-scrollbar-thumb {
-  background: #4A4657;
+  background: #C7D0E4;
 }
