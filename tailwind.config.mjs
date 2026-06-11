@@ -1,3 +1,17 @@
+// SF Pro stack: real SF Pro on Apple devices via system font, named
+// "SF Pro Display/Text" for machines with the font installed, then fallbacks.
+const sfPro = [
+  "-apple-system",
+  "BlinkMacSystemFont",
+  "SF Pro Display",
+  "SF Pro Text",
+  "SFProDisplay",
+  "Segoe UI",
+  "Helvetica Neue",
+  "Arial",
+  "sans-serif",
+];
+
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: "class",
@@ -78,14 +92,14 @@ export default {
         "container-max": "1200px",
       },
       fontFamily: {
-        "display-lg-mobile": ["Syne", "sans-serif"],
-        "display-lg": ["Syne", "sans-serif"],
-        "headline-lg": ["Syne", "sans-serif"],
-        "headline-sm": ["Syne", "sans-serif"],
-        "body-md": ["DM Sans", "sans-serif"],
-        "body-lg": ["DM Sans", "sans-serif"],
-        button: ["DM Sans", "sans-serif"],
-        "label-mono": ["Space Mono", "monospace"],
+        "display-lg-mobile": sfPro,
+        "display-lg": sfPro,
+        "headline-lg": sfPro,
+        "headline-sm": sfPro,
+        "body-md": sfPro,
+        "body-lg": sfPro,
+        button: sfPro,
+        "label-mono": sfPro,
       },
       fontSize: {
         "display-lg-mobile": ["48px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "800" }],
