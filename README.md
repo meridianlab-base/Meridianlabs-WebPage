@@ -1,3 +1,1 @@
-
-Both meridianlabs.in and its alternate name are improperly configured
-Domain does not resolve to the GitHub Pages server. For more information, see documentation (NotServedByPagesError).
+829d604d21ef8bc3.vercel-dns-017.com.
