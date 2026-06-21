@@ -1,0 +1,99 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { withBase } from "@/lib/links";
+import { buttonVariants } from "@/components/ui/button";
+
+export async function getStaticPaths() {
+  const postsGlob = import.meta.glob("../../../blogs/*.md", { eager: true });
+  const posts = Object.values(postsGlob);
+  return posts.map((post: any) => {
+    const filename = post.file.split(/[\\/]/).pop() || "";
+    const slug = filename.replace(/\.md$/, "");
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { slug } = Astro.params;
+const { Content, frontmatter } = post;
+
+const title = frontmatter.title || "Blog Post";
+const date = frontmatter.date || "";
+const readTime = frontmatter.readTime || "";
+const category = frontmatter.category || "Blog";
+const image = frontmatter.image || "";
+const description = frontmatter.description || "";
+---
+
+<BaseLayout title={`${title} | Meridian Labs`} active="insights">
+  <main class="py-section-padding-v px-gutter max-w-4xl mx-auto">
+    <!-- Back Button -->
+    <div class="mb-8">
+      <a
+        href={withBase("/insights")}
+        class="inline-flex items-center gap-2 text-label-mono font-label-mono text-on-surface-variant hover:text-primary-fixed transition-colors group"
+      >
+        <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">
+          arrow_back
+        </span>
+        Back to Insights
+      </a>
+    </div>
+
+    <!-- Header Details -->
+    <header class="mb-12">
+      <div class="flex items-center gap-4 mb-4">
+        <span class="font-label-mono text-label-mono text-primary-fixed border border-primary-fixed px-2 py-1 uppercase">
+          {category}
+        </span>
+        {date && (
+          <span class="font-label-mono text-label-mono text-on-surface-variant">
+            {date}
+          </span>
+        )}
+        {readTime && (
+          <span class="font-label-mono text-label-mono text-on-surface-variant">
+            {readTime}
+          </span>
+        )}
+      </div>
+      <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-6 leading-tight">
+        {title}
+      </h1>
+      {description && (
+        <p class="text-body-lg text-on-surface-variant font-body-lg max-w-2xl leading-relaxed">
+          {description}
+        </p>
+      )}
+    </header>
+
+    <!-- Featured Image -->
+    {image && (
+      <div class="aspect-[21/9] w-full overflow-hidden border border-outline-variant mb-12 bg-surface-card group">
+        <img
+          src={withBase(image)}
+          alt={title}
+          class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.02]"
+        />
+      </div>
+    )}
+
+    <!-- Article Content -->
+    <article class="blog-prose font-body-md text-body-md text-on-background leading-relaxed">
+      <Content />
+    </article>
+      <div class="mt-12 text-center">
+        <a href={withBase("/contact")} class={`${buttonVariants({ size: "xl" })} relative z-10`}>
+  {slug === "blog-saas-product-development-2026"
+    ? "Get Your SaaS Product Ready with Us"
+    : slug === "blog-web-app-traffic"
+    ? "Scale Your Web App for Traffic – Let Us Help"
+    : "Contact Us"}
+  <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+      </div>
+  </main>
+</BaseLayout>
