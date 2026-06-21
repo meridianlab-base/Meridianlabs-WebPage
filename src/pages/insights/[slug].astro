@@ -86,7 +86,7 @@ const description = frontmatter.description || "";
       <Content />
     </article>
       <div class="mt-12 text-center">
-        <a href={withBase("/contact")} class={`${buttonVariants({ size: "xl" })} relative z-10`}>
+        <a href={withBase("/contact")} class={`${buttonVariants({ size: "sm" })} sm:${buttonVariants({ size: "xl" })} block mx-auto w-max relative z-10`}>
   {slug === "blog-saas-product-development-2026"
     ? "Get Your SaaS Product Ready with Us"
     : slug === "blog-web-app-traffic"
